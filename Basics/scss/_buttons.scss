@@ -1,0 +1,27 @@
+/*
+This file is used to specfically style the buttons
+*/
+
+// This snippet is acting like a HTML element, but it's a placeholder
+// for styles. This can then be used to @extend in other HTML elements, 
+// thus getting all the styles defined in here
+%btn {
+    display: inline-block;
+    border-radius: 5px;
+    padding: 8px 20px;
+    margin: 3px;
+
+    &:hover {
+        transform: scale(.98);
+    }
+}
+
+.btn-primary {
+    @extend %btn;
+    @include set-background(lighten($primary-color, 10%))
+}
+.btn-secondary {
+    @extend %btn; 
+    background-color: $secondary-color;
+    @include set-background($secondary-color)
+}

@@ -1,0 +1,29 @@
+/*================
+This file is used to store all the variables and function that are going to be used
+accross all the different scss files.
+==================*/
+
+$font-stack: Arial, Helvetica, sans-serif;
+$light-color: #f4f4f4;
+$primary-color: #0e6cff;
+// $primary-color: #e0ffff;
+$secondary-color: #ff8700;
+
+// Set text color based on background
+// If we have a light input color, return a dark color.
+@function set-text-color($color) {
+    @if(lightness($color) > 70) {
+        @return #333;
+    } @else {
+        @return #fff;
+    }
+}
+
+// Set background & text color
+// A mixin is like a function, but it has no return
+// and we we call it we must use @include.
+@mixin set-background($color) {
+    background-color: $color;
+    color: set-text-color($color);
+}
+
